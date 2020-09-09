@@ -1,36 +1,41 @@
 #include <iostream>
 
 using namespace std;
-
-class number
+class two;
+class one
 {
     private:
-        int num;
+        int data1;
     public:
-        void input()
+        one()
         {
-
-            cin>>num;
-        }
-        void check()
-        {
-            if (num%2==0)
-            {
-                cout<<"The given number is even number"<<endl;
-            }
-            else
-            {
-                cout<<"The given number is odd number"<<endl;
-            }
-
-
+            data1=100;
         }
 
+        friend void hello(one , two );
 };
+class two
+{
+    private:
+        int data2;
+    public:
+        two()
+        {
+            data2=200;
+        }
+
+        friend void hello(one a, two b );
+};
+void hello(one a, two b)
+{
+    cout<<a.data1<<endl;
+    cout<<b.data2<<endl;
+}
+
 int main()
 {
-    number n1;
-    n1.input();
-    n1.check();
+    one o1;
+    two t1;
+    hello(o1,t1);
     return 0;
 }
